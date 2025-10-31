@@ -15,12 +15,24 @@ function setup(){
 
   velx = random(-5, 5);
   vely = random(-5, 5);
+
+  rectMode (CENTER);
 }
 
 function draw(){
   background(150);
   
-  if(posx > width - rad || posx < rad){
+  actualizar();
+  visualizar();
+}
+
+
+/** 
+ * Función actualizar
+ */
+
+function actualizar(){
+if(posx > width - rad || posx < rad){
       velx *= -1; 
   }
 
@@ -30,6 +42,12 @@ function draw(){
 
   posx += velx;
   posy += vely;
-  
-  circle(posx, posy, diam);
 }
+
+function visualizar(){
+  fill("#7ec6f7c1");
+  circle(posx, posy, diam);
+  fill("#f0b81de0");
+  square(posx, posy, diam/2);
+}
+
